@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.hyman.mapper.TmTableSeqMapper">
+    <select id="selectValByPrimarykey" parameterType="java.lang.String" resultType="java.lang.Long">
+        select VAL
+        from TM_TABLE_SEQ where SEQ_NAME=#{id,jdbcType=VARCHAR}
+    </select>
+    
+    <!-- 更新 -->
+    <update id="update" parameterType="study.hyman.dto.TmTableSeq">
+        update TM_TABLE_SEQ set VAL=#{val, jdbcType=BIGINT}
+        where SEQ_NAME=#{seqName,jdbcType=VARCHAR}
+    </update>
+</mapper>

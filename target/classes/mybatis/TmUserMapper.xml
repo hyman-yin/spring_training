@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="study.hyman.mapper.TmUserMapper">
+	<resultMap type="study.hyman.dto.TmUser" id="BaseResultMap">
+		<result property="id" column="ID" jdbcType="VARCHAR"/>
+		<result property="userId" column="USER_ID" jdbcType="VARCHAR"/>
+		<result property="userName" column="USER_NAME" jdbcType="VARCHAR"/>
+		<result property="password" column="PASSWORD" jdbcType="VARCHAR"/>
+		<result property="createdDatetime" column="CREATED_DATETIME" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<sql id="BASE_COLUMNS">
+		ID,USER_ID,USER_NAME,PASSWORD,CREATED_DATETIME
+	</sql>
+
+    <select id="selectByPrimarykey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select <include refid="BASE_COLUMNS" />
+        from TM_USER where ID=#{id,jdbcType=VARCHAR }
+    </select>
+    
+    <select id="selectByTmUser" parameterType="study.hyman.dto.TmUser" resultMap="BaseResultMap">
+        select <include refid="BASE_COLUMNS" /> 
+        from TM_USER where 1=1
+        <if test="id!=null">
+	        and ID=#{id, jdbcType=VARCHAR}
+        </if>
+        <if test="userId!=null">
+	        and USER_ID=#{userId, jdbcType=VARCHAR}
+        </if>
+        <if test="userName!=null">
+	        and USER_NAME=#{userName, jdbcType=VARCHAR}
+        </if>
+    </select>
+    
+    <!-- 增加 -->
+    <insert id="insert" parameterType="study.hyman.dto.TmUser">
+        insert into TM_USER(ID,USER_ID,USER_NAME,PASSWORD,CREATED_DATETIME)
+        values(#{id,jdbcType=VARCHAR},#{userId,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},now())
+    </insert>
+    
+    <!-- 根据主键删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from TM_USER where ID=#{id,jdbcType=VARCHAR}
+    </delete>
+    
+    <!-- 更新 -->
+    <update id="update" parameterType="study.hyman.dto.TmUser">
+        update TM_USER set 
+		    USER_ID=#{userId, jdbcType=VARCHAR},
+			USER_NAME=#{userName, jdbcType=VARCHAR},
+			PASSWORD=#{password, jdbcType=VARCHAR)
+        where id=#{id,jdbcType=VARCHAR}
+    </update>
+</mapper>
