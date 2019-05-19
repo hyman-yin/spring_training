@@ -16,6 +16,14 @@
         
         <!-- aspectJ自动代理实现AOP功能  -->
         <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
-        
+        ddddddddddddddddddddddsdfasdfasdfasdf
+        dfs
+        2342
+        sdfas
+        dfas
+        df
+        asdf
+        asd
+        fasdf
 		<import resource="spring-jdbc.xml" />
 </beans>

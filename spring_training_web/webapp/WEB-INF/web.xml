@@ -29,12 +29,11 @@
 	</context-param>
 
 	<servlet>
-		<servlet-name>DispatcherServlet</servlet-name><!--在DispatcherServlet的初始化过程中，框架会在web应用的 
-			WEB-INF文件夹下寻找名为[servlet-name]-servlet.xml 的配置文件，生成文件中定义的bean。 -->
+		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:biz/springmvc.xml</param-value>
+			<param-value>classpath*:biz/springmvc.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup><!--是启动顺序，让这个Servlet随Servletp容器一起启动。 -->
 	</servlet>

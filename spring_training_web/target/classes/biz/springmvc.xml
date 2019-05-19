@@ -20,6 +20,19 @@
 	
 	<!--添加访问静态资源的功能 -->
 	<mvc:default-servlet-handler/>
+	sdfasdf
+	sdfasd
+	f23423
+	sdf23
+	4
+	s
+	r2
+	342
+	34
+	2
+	342
+	34
+	23
 	
 	<!-- 拦截器 -->
 	<mvc:interceptors>

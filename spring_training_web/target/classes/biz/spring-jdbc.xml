@@ -12,7 +12,7 @@
    <context:property-placeholder location="classpath:spring_training/*.properties"/>
 
 	<!-- 配置数据源 -->
-	<bean222 name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+	<bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
 		destroy-method="close">
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
